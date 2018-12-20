@@ -1,0 +1,31 @@
+{
+  "name": "socket-appchat",
+  "version": "1.0.0",
+  "description": "Simple app chat with Socket.IO",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phatnguyenuit/socket-appchat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phatnguyenuit/socket-appchat/issues"
+  },
+  "homepage": "https://github.com/phatnguyenuit/socket-appchat#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-jwt": "^5.3.1",
+    "handlebars": "^4.0.12",
+    "helmet": "^3.15.0",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.0",
+    "morgan": "^1.9.1",
+    "socket.io": "^2.2.0"
+  }
+}
