@@ -1,0 +1,43 @@
+html {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.appchat-container {
+  display: flex;
+  flex-direction: row;
+  background-color: aqua;
+}
+
+.appchat-container>div {
+  height: 100vh;
+  background-color: #f1f1f4;
+  border: 1px solid black;
+  overflow: auto;
+}
+
+.appchat-content {
+  flex-grow: 7;
+}
+
+.appchat-container>div:last-child {
+  border-left: 0;
+}
+
+.appchat-center {
+  text-align: center;
+}
+
+.chat-entry {
+  margin-top: 10px;
+}
+
+.chat-item {
+  margin-bottom: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.chat-item:active,
+.chat-item:hover {
+  background-color: #FFFFFF;
+}

@@ -1,0 +1,1 @@
+!function(){var a=Handlebars.template;Handlebars.templates=Handlebars.templates||{};Handlebars.partials.name=a({compiler:[7,">= 4.0.0"],main:function(a,e,n,l,t){var s;return a.escapeExpression("function"==typeof(s=null!=(s=n.name||(null!=e?e.name:e))?s:n.helperMissing)?s.call(null!=e?e:a.nullContext||{},{name:"name",hash:{},data:t}):s)+"\n"},useData:!0})}();

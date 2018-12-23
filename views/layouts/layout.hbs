@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>{{> title}}</title>
-  </head>
-  <body>
-    {{{body}}}
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-      var socket = io.connect();
-    </script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>{{> title}}</title>
+  <link rel="stylesheet" href="./static/styles/style.css">
+</head>
+
+<body>
+  {{{body}}}
+  {{!-- Javascript lib --}}
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="./static/js/handlebars.runtime.js"></script>
+  <script src="./static/js/jquery.min.js"></script>
+  <script src="./static/js/partials.js"></script>
+  <script src="./static/js/templates.js"></script>
+  <script src="./static/js/main.js"></script>
+</body>
+
 </html>

@@ -2,9 +2,9 @@
   "name": "socket-appchat",
   "version": "1.0.0",
   "description": "Simple app chat with Socket.IO",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "nodemon --watch index.js"
+    "start": "precomplie.sh && nodemon -e js src/index.js"
   },
   "repository": {
     "type": "git",
@@ -25,11 +25,13 @@
     "express-jwt": "^5.3.1",
     "helmet": "^3.15.0",
     "jsonwebtoken": "^8.4.0",
+    "lodash": "^4.17.11",
     "mongoose": "^5.4.0",
     "morgan": "^1.9.1",
     "socket.io": "^2.2.0"
   },
   "devDependencies": {
+    "handlebars": "^4.0.12",
     "nodemon": "^1.18.9"
   }
 }
