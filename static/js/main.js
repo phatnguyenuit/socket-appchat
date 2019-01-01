@@ -1,5 +1,5 @@
 var messageTemplate = Handlebars.templates["message"];
-$(function() {
+$(function () {
   var socket = io.connect();
   var submitBtn = $("#submit");
   var messageEle = $("#message");
@@ -12,13 +12,16 @@ $(function() {
   }
   submitBtn.on("click", submit);
   socket.on("receive_message", data => {
-    chatArea.append(messageTemplate({ ...data, name: "test" }));
+    console.log(data);
+    chatArea.append(messageTemplate({ ...data,
+      name: "test"
+    }));
   });
 
   socket.on("receive_no_online", no_online => {
     $("#no_online").text(no_online);
   });
-  $(".chat-entry").on("click", ".chat-item", function(e) {
+  $(".chat-entry").on("click", ".chat-item", function (e) {
     var partner = $(this).attr("data-partner");
     socket.emit("request-chat", partner);
   });
