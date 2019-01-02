@@ -1,28 +1,37 @@
-const passport = require('passport');
-const jwt = require('jsonwebtoken');
+const passport = require("passport");
+const jwt = require("jsonwebtoken");
 
-const passportSignup = passport.authenticate('signup', {
+const passportSignup = passport.authenticate("signup", {
   session: false
 });
 
 const signup = (req, res, next) => {
   res.json({
-    message: 'Signup successful',
+    message: "Signup successful",
     user: req.user
   });
 };
 
-const login = (req, res, next) => {
-  passport.authenticate('login', (err, user, info) => {
-    try {
-      if (err || !user) {
-        const error = new Error('An Error occured')
-        return next(error);
-      }
-      req.login(user, {
+const passportLogin = (req, res, next) => {
+  passport.authenticate("login", (err, user, info) => {
+    console.dir(err, user, info);
+    if (err) {
+      return res.json(err);
+    }
+    if (!user) {
+      console.log(req);
+      return res.render('pages/login', {
+        ...req.body,
+        error: info
+      });
+      // return res.json(info);
+    }
+    req.login(
+      user, {
         session: false
-      }, (error) => {
-        if (error) return next(error)
+      },
+      error => {
+        if (error) return next(error);
         //We don't want to store the sensitive information such as the
         //user password in the token so we pick only the email and id
         const body = {
@@ -31,18 +40,18 @@ const login = (req, res, next) => {
         };
         //Sign the JWT token and populate the payload with the user email and id
         const token = jwt.sign({
-          user: body
-        }, 'my_secret');
+            user: body
+          },
+          "my_secret"
+        );
         //Send back the token to the user
         return res.json({
           token
         });
-      });
-    } catch (error) {
-      return next(error);
-    }
+      }
+    );
   })(req, res, next);
-}
+};
 
 /*
 Note : We set { session : false } because we don't want to store the user details in a session.
@@ -55,8 +64,19 @@ https://scotch.io/bar-talk/why-jwts-suck-as-session-tokens#why-do-jwts-suck
 Reference: https://scotch.io/@devGson/api-authentication-with-json-web-tokensjwt-and-passport
 */
 
+const login = (err, req, res) => {
+  console.log("call em!");
+  if (err) {
+    console.log(err);
+    res.send("Login Fail!");
+  } else {
+    res.send("Success");
+  }
+};
+
 module.exports = {
   passportSignup,
-  signup,
+  passportLogin,
   login,
-}
+  signup
+};

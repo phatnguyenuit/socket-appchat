@@ -20,7 +20,9 @@ router.get('/login', (req, res) => {
     title: 'Login'
   })
 });
-router.post('/login', authController.login);
+router.post('/login',
+  authController.passportLogin,
+);
 
 // routes
 router.get("/", (req, res) => {
